@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa_pb.c                                            :+:      :+:    :+:   */
+/*   counter.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oal-omar <oal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/22 12:18:50 by oal-omar          #+#    #+#             */
-/*   Updated: 2026/09/22 12:20:17 by oal-omar         ###   ########.fr       */
+/*   Created: 2026/09/22 13:35:04 by oal-omar          #+#    #+#             */
+/*   Updated: 2026/09/22 13:39:29 by oal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "stack.h"
+#include "counter.h"
 
-static void	swap_src_dst(t_stack *dst, t_stack *src)
+void	init_counters(t_counter counters[OP_COUNT])
 {
-	t_node	*src_node;
-
-	src_node = pop(src);
-	if (src_node)
-		push(dst, src_node);
-}
-
-void	pa(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
-{
-	swap_src_dst(a, b);
-	c[OP_PA].count += 1;
-}
-
-void	pb(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
-{
-	swap_src_dst(b, a);
-	c[OP_PB].count += 1;
+	counters[OP_SA] = {"sa", 0};
+	counters[OP_SB] = {"sb", 0};
+	counters[OP_SS] = {"ss", 0};
+	counters[OP_PA] = {"pa", 0};
+	counters[OP_PB] = {"pb", 0};
+	counters[OP_RA] = {"ra", 0};
+	counters[OP_RB] = {"rb", 0};
+	counters[OP_RR] = {"rr", 0};
+	counters[OP_RRA] = {"rra", 0};
+	counters[OP_RRB] = {"rrb", 0};
+	counters[OP_RRR] = {"rrr", 0};
 }

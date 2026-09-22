@@ -11,6 +11,36 @@
 /* ************************************************************************** */
 #include "stack.h"
 
-void	ra(t_stack *a, t_counter c[OP_COUNT]);
-void	rb(t_stack *b, t_counter c[OP_COUNT]);
-void	rr(t_stack *a, t_stack *b, t_counter c[OP_COUNT]);
+static void	shift_up(t_stack *stack)
+{
+	t_node	*temp;
+
+	if (!stack || !stack->top || !stack->top->next)
+		return ;
+	temp = stack->top;
+	stack->top = temp->next;
+	stack->top->prev = NULL;
+	stack->tail->next = temp;
+	temp->prev = stack->tail;
+	temp->next = NULL;
+	stack->tail = temp;
+}
+
+void	ra(t_stack *a, t_counter c[OP_COUNT])
+{
+	shift_up(a);
+	c[OP_RA].count += 1;
+}
+
+void	rb(t_stack *b, t_counter c[OP_COUNT])
+{
+	shift_up(b);
+	c[OP_RB].count += 1;
+}
+
+void	rr(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
+{
+	shift_up(a);
+	shift_up(b);
+	c[OP_RR].count += 1;
+}
