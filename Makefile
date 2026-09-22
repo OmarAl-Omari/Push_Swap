@@ -4,7 +4,7 @@ CFLAGS =
 NAME = push_swap
 
 SRCS = srcs/insertion_sort.c srcs/pa_pb.c srcs/ra_rb.c \
-	   srcs/rra_rrb.c srcs/sa_sb.c srcs/stack.c
+	   srcs/rra_rrb.c srcs/sa_sb.c srcs/stack.c srcs/counter.c
 
 HEADER_DIR = ./includes/
 
