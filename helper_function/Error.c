@@ -6,7 +6,7 @@
 /*   By: wmakahle <wmakahle@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 13:31:25 by wmakahle          #+#    #+#             */
-/*   Updated: 2026/09/22 13:31:26 by wmakahle         ###   ########.fr       */
+/*   Updated: 2026/09/22 20:41:37 by wmakahle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,4 @@ int	range_check(char *str)
 	}
 }
 
-int	is_dup()
+int	is_dup();
