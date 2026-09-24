@@ -1,10 +1,9 @@
 
-
-ssize_t	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	nig;
-	ssize_t	result;
+	int	result;
 
 	i = 0;
 	result = 0;
