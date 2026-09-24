@@ -13,6 +13,7 @@
 # define STACK_H
 
 # include <stdlib.h>
+# include <unistd.h>
 # include "counter.h"
 
 typedef struct s_node
@@ -49,5 +50,7 @@ void	rr(t_stack *a, t_stack *b, t_counter c[OP_COUNT]);
 void	rra(t_stack *a, t_counter c[OP_COUNT]);
 void	rrb(t_stack *b, t_counter c[OP_COUNT]);
 void	rrr(t_stack *a, t_stack *b, t_counter c[OP_COUNT]);
+
+void insertion_sort(t_stack *A, t_stack *B, t_counter c[OP_COUNT]);
 
 #endif

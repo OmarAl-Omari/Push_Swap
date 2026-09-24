@@ -1,5 +1,6 @@
 #include "../includes/helper.h"
 #include "../includes/stack.h"
+#include "../includes/counter.h"
 
 static int	is_space(char *s)
 {
