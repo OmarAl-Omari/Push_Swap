@@ -35,5 +35,5 @@ typedef enum e_operation
 }	t_operation;
 
 void	init_counters(t_counter counters[OP_COUNT]);
-
+int		total_operations(t_counter counters[OP_COUNT]);
 #endif

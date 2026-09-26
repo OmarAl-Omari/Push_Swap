@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa_pb.c                                            :+:      :+:    :+:   */
+/*   benchmark.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oal-omar <oal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/22 12:18:50 by oal-omar          #+#    #+#             */
-/*   Updated: 2026/09/26 14:30:02 by oal-omar         ###   ########.fr       */
+/*   Created: 2026/09/26 19:40:24 by oal-omar          #+#    #+#             */
+/*   Updated: 2026/09/26 19:45:23 by oal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "stack.h"
+#ifndef BENCHMARK_H
+# define BENCHMARK_H
 
-static void	swap_src_dst(t_stack *dst, t_stack *src)
-{
-	t_node	*src_node;
+# include <stack.h>
 
-	src_node = pop(src);
-	if (src_node)
-		push(dst, src_node);
-}
+int		total_operations(t_counter counters[OP_COUNT]);
+float	compute_disorder(t_stack *stack_a);
+void	print_bench(t_stack *stack_a, char *strat, t_counter count[OP_COUNT]);
 
-void	pa(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
-{
-	swap_src_dst(a, b);
-	c[OP_PA].count += 1;
-	write(1, "pa\n", 3);
-}
-
-void	pb(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
-{
-	swap_src_dst(b, a);
-	c[OP_PB].count += 1;
-	write(1, "pb\n", 3);
-}
+#endif

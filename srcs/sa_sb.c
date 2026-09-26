@@ -6,7 +6,7 @@
 /*   By: oal-omar <oal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 12:18:10 by oal-omar          #+#    #+#             */
-/*   Updated: 2026/09/22 12:20:17 by oal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/26 14:31:16 by oal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -26,12 +26,14 @@ void	sa(t_stack *a, t_counter c[OP_COUNT])
 {
 	swap_first_two(a);
 	c[OP_SA].count += 1;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b, t_counter c[OP_COUNT])
 {
 	swap_first_two(b);
 	c[OP_SB].count += 1;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
@@ -39,4 +41,5 @@ void	ss(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
 	swap_first_two(a);
 	swap_first_two(b);
 	c[OP_SS].count += 1;
+	write(1, "ss\n", 3);
 }

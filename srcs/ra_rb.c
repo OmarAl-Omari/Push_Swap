@@ -30,12 +30,14 @@ void	ra(t_stack *a, t_counter c[OP_COUNT])
 {
 	shift_up(a);
 	c[OP_RA].count += 1;
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *b, t_counter c[OP_COUNT])
 {
 	shift_up(b);
 	c[OP_RB].count += 1;
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
@@ -43,4 +45,5 @@ void	rr(t_stack *a, t_stack *b, t_counter c[OP_COUNT])
 	shift_up(a);
 	shift_up(b);
 	c[OP_RR].count += 1;
+	write(1, "rr\n", 3);
 }

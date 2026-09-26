@@ -1,6 +1,17 @@
-#include "../includes/helper.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oal-omar <oal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/26 14:52:19 by oal-omar          #+#    #+#             */
+/*   Updated: 2026/09/26 14:54:34 by oal-omar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/stack.h"
-#include "../includes/counter.h"
+#include "../includes/helper.h"
 
 static int	is_space(char *s)
 {
@@ -16,9 +27,9 @@ static int	is_space(char *s)
 	return (0);
 }
 
-static void str_free(char **s)
+static void	str_free(char **s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -29,7 +40,7 @@ static void str_free(char **s)
 	free(s);
 }
 
-static int check_and_itoa(char *str, t_stack *A)
+static int	check_and_itoa(char *str, t_stack *A)
 {
 	int		n;
 	t_node	*t;
@@ -55,30 +66,29 @@ static int check_and_itoa(char *str, t_stack *A)
 	return (n);
 }
 
-static void add_stack_A(t_stack *A, char *s)
+static void	add_stack_a(t_stack *A, char *s)
 {
-		char	**str;
-		int		i;
-		int		num;
+	char	**str;
+	int		i;
+	int		num;
 
-		str = NULL;
-		i = 0;
-		if (is_space(s))
+	str = NULL;
+	i = 0;
+	if (is_space(s))
+	{
+		str = ft_split(s, ' ');
+		while (str[i])
 		{
-			str = ft_split(s, ' ');
-			while (str[i])
-			{
-				num = check_and_itoa(str[i], A);
-				push(A, create_node(num));
-				i++;
-			}
-			str_free(str);
-			return ;
+			num = check_and_itoa(str[i], A);
+			push(A, create_node(num));
+			i++;
 		}
-		num = check_and_itoa(s, A);
-		push(A, create_node(num));
+		str_free(str);
+		return ;
+	}
+	num = check_and_itoa(s, A);
+	push(A, create_node(num));
 }
-
 
 int	push_all_to_stack(t_stack *A, char **args, int n)
 {
@@ -87,16 +97,16 @@ int	push_all_to_stack(t_stack *A, char **args, int n)
 
 	if (n == 1)
 		exit(1);
-	i  = 1;
+	i = 1;
 	flag = 0;
 	while (i < n)
 	{
-		if(args[i][0] == '-' && args[i][1] == '-')
-			flag = Error(args[i], A);
+		if (args[i][0] == '-' && args[i][1] == '-')
+			flag = error(args[i], A);
 		else
 		{
-			Error(args[i], A);
-			add_stack_A(A, args[i]);
+			error(args[i], A);
+			add_stack_a(A, args[i]);
 		}
 		i++;
 	}

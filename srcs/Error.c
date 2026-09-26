@@ -13,7 +13,7 @@
 #include "../includes/helper.h"
 #include "../includes/stack.h"
 
-static void flag(char *flags[4])
+static void	flag(char *flags[4])
 {
 	flags[0] = "--simple";
 	flags[1] = "--medium";
@@ -25,8 +25,8 @@ static int	is_flag(char *str)
 {
 	static int		bench;
 	static int		duplicate;
-	char	*flags[4];	
-	int			i;
+	char			*flags[4];	
+	int				i;
 
 	i = 0;
 	flag(flags);
@@ -37,7 +37,7 @@ static int	is_flag(char *str)
 			if (duplicate)
 				return (404);
 			duplicate = 1;
-			return ((1 + i) * 10);	
+			return ((1 + i) * 10);
 		}
 		i++;
 	}
@@ -50,7 +50,6 @@ static int	is_flag(char *str)
 	}
 	return (404);
 }
-
 
 static int	is_string_num(char *str)
 {
@@ -76,7 +75,6 @@ static int	is_string_num(char *str)
 	}
 	return (0);
 }
-
 
 int	range_check(char *str)
 {
@@ -106,10 +104,10 @@ int	range_check(char *str)
 	return (0);
 }
 
-int	Error(char *str, t_stack *stack)
+int	error(char *str, t_stack *stack)
 {
 	int	flag;
-	
+
 	flag = 0;
 	if (str[0] == '-' && str[1] == '-')
 	{

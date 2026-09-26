@@ -51,6 +51,9 @@ void	rra(t_stack *a, t_counter c[OP_COUNT]);
 void	rrb(t_stack *b, t_counter c[OP_COUNT]);
 void	rrr(t_stack *a, t_stack *b, t_counter c[OP_COUNT]);
 
-void insertion_sort(t_stack *A, t_stack *B, t_counter c[OP_COUNT]);
+int		push_all_to_stack(t_stack *A, char **args, int n);
+int		error(char *str, t_stack *stack);
+
+void	insertion_sort(t_stack *A, t_stack *B, t_counter c[OP_COUNT]);
 
 #endif
